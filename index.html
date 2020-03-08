@@ -1,14 +1,327 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>veronica_codes</title>
-  </head>
-  <body>
-    <nav>
-  <a href="/">Home</a>
-  <a href="/ruby.html">ruby</a>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="generator" content="Jekyll">
+
+	<title>veronica | codes</title>
+  <meta name="description" content="A minimal, responsive, ready to use blog template, built with Jekyll.">
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!-- RSS -->
+	<link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">Home</a>
+
+		<!-- Nav pages -->
+	  
+	    
+	  
+	    
+	      <a href="/glossary" title="Glossary">Glossary</a>
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+    
+    <!-- Nav links -->
+	  <a href="http://veronicacannon.com">Me</a>
+
+
+	</div>
+  
+  <!-- Nav footer -->
+	
+	  <footer>
+	
+	<span>version 1.0.0</span>
+
+</footer>
+	
+
 </nav>
-    <h1>hello world!</h1>
-  </body>
+
+    
+    <!-- Icon menu -->
+	  <a id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+      
+        <header id="header" class="parent justify-spaceBetween">
+  <div class="inner w100 relative">
+    <span class="f-left">  
+      <a href="/">
+        <h1>
+          <span>veronica </span>| codes
+        </h1>
+      </a>
+    </span>
+    <span id="nav-links" class="absolute right bottom">
+      <!-- Nav pages -->
+	    
+	      
+	    
+	      
+	        <a href="/glossary" title="Glossary">Glossary</a>
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+      
+      <!-- Nav links -->
+	    <a href="http://veronicacannon.com">Me</a>
+
+
+    </span>
+  </div>
+</header>
+
+
+
+
+      
+
+    <!-- Main content -->
+	  <div id="container">
+		  
+		<main>
+
+			<!-- Posts -->
+<ul id="posts">
+
+	
+
+	  <li class="post">
+	  	<h2><a href="/long-lines">How to Split Long Lines in Rspec</a></h2>
+      <time datetime="2020-03-08T00:00:00-08:00" class="by-line"> <i>08 Mar 2020</i> </time>
+	  	<p><p>It can be challenging to know where to break a long line in ruby.  Especially when writing tests in rspec.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">PostHelper</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="ss">:helper</span> <span class="k">do</span>
+  <span class="n">describe</span> <span class="s1">'#markdown'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'returns code blocks'</span> <span class="k">do</span>
+      <span class="n">blog_text</span> <span class="o">=</span> <span class="s2">"```ruby</span><span class="se">\n</span><span class="s2">Hello, World!</span><span class="se">\n</span><span class="s2">```"</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">helper</span><span class="p">.</span><span class="nf">markdown</span><span class="p">(</span><span class="n">blog_text</span><span class="p">)).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s2">"&lt;pre&gt;&lt;code class=</span><span class="se">\"</span><span class="s2">ruby</span><span class="se">\"</span><span class="s2">&gt;Hello, World!</span><span class="se">\n</span><span class="s2">&lt;/code&gt;&lt;/pre&gt;</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>One technique is to find the method call, <code class="highlighter-rouge">.to</code> in the example above, and break it there.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">PostHelper</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="ss">:helper</span> <span class="k">do</span>
+  <span class="n">describe</span> <span class="s1">'#markdown'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'returns code blocks'</span> <span class="k">do</span>
+      <span class="n">blog_text</span> <span class="o">=</span> <span class="s2">"```ruby</span><span class="se">\n</span><span class="s2">Hello, World!</span><span class="se">\n</span><span class="s2">```"</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">helper</span><span class="p">.</span><span class="nf">markdown</span><span class="p">(</span><span class="n">blog_text</span><span class="p">)).</span>
+        <span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s2">"&lt;pre&gt;&lt;code class=</span><span class="se">\"</span><span class="s2">ruby</span><span class="se">\"</span><span class="s2">&gt;Hello, World!</span><span class="se">\n</span><span class="s2">&lt;/code&gt;&lt;/pre&gt;</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p><a href="https://docs.rubocop.org/en/stable/">Rubocop</a> can help improve your ruby style.  Rubocop is available as an extension in Visual Studio code.</p>
+</p>
+	  </li>
+
+    
+
+	  <li class="post">
+	  	<h2><a href="/structs">Ruby Structs Example</a></h2>
+      <time datetime="2020-03-07T00:00:00-08:00" class="by-line"> <i>07 Mar 2020</i> </time>
+	  	<p><p>Structs are a built-in Ruby class that can act like a custom class.  They are great for testing, debugging and playing.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">LunchOrder</span> <span class="o">=</span> <span class="no">Struct</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:drink</span><span class="p">,</span> <span class="ss">:food</span><span class="p">)</span>
+<span class="n">event_order</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">event_order</span> <span class="o">&lt;&lt;</span> <span class="no">LunchOrder</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'hakeem'</span><span class="p">,</span> <span class="s1">'water'</span><span class="p">,</span> <span class="s1">'Mixed Veggie'</span><span class="p">)</span>
+<span class="n">event_order</span> <span class="o">&lt;&lt;</span> <span class="no">LunchOrder</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'selena'</span><span class="p">,</span> <span class="s1">'mango lasse'</span><span class="p">,</span> <span class="s1">'Bangkok Dumplings'</span><span class="p">)</span>
+<span class="n">event_order</span> <span class="o">&lt;&lt;</span> <span class="no">LunchOrder</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'jingyan'</span><span class="p">,</span> <span class="s1">'tea'</span><span class="p">,</span> <span class="s1">'Yellow Curry'</span><span class="p">)</span>
+<span class="n">drinks</span> <span class="o">=</span> <span class="n">event_order</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:drink</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Structs are compared by value equality rather than referential equality.  If two struct objects have the same value they are equal. Classes with the same values are not equal.</p>
+
+<h3 id="references">references</h3>
+
+<p><a href="https://www.leighhalliday.com/ruby-struct">https://www.leighhalliday.com/ruby-struct</a></p>
+
+<p><a href="https://blog.bigbinary.com/2018/01/16/ruby-2-5-allows-creating-structs-with-keyword-arguments.html">https://blog.bigbinary.com/2018/01/16/ruby-2-5-allows-creating-structs-with-keyword-arguments.html</a></p>
+
+<h5 id="keyword-parameters-in-structs-were-introduced-in-ruby-25">Keyword parameters in structs were introduced in Ruby 2.5</h5>
+</p>
+	  </li>
+
+    
+
+	  <li class="post">
+	  	<h2><a href="/call-helper-rails-console">How to Call Rails Helper in Rails Console</a></h2>
+      <time datetime="2020-02-28T00:00:00-08:00" class="by-line"> <i>28 Feb 2020</i> </time>
+	  	<p><p>Remember to prefix the method with <code class="highlighter-rouge">helper.</code> to run in rails console.</p>
+
+<p>Given a helper method like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">PostHelper</span>
+  <span class="k">def</span> <span class="nf">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="ss">no_intra_emphasis: </span><span class="kp">true</span><span class="p">,</span> 
+      <span class="ss">fenced_code_blocks: </span><span class="kp">true</span><span class="p">,</span>
+      <span class="ss">gh_blockcode: </span><span class="kp">true</span><span class="p">,</span>   
+      <span class="ss">disable_indented_code_blocks: </span><span class="kp">true</span><span class="p">,</span>
+      <span class="ss">prettify: </span><span class="kp">true</span>
+    <span class="p">]</span>
+    <span class="n">markdown</span> <span class="o">=</span> <span class="no">Redcarpet</span><span class="o">::</span><span class="no">Markdown</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Redcarpet</span><span class="o">::</span><span class="no">Render</span><span class="o">::</span><span class="no">HTML</span><span class="p">,</span> <span class="o">*</span><span class="n">options</span><span class="p">)</span>
+    <span class="n">markdown</span><span class="p">.</span><span class="nf">render</span><span class="p">(</span><span class="n">text</span><span class="p">).</span><span class="nf">html_safe</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>To test in <code class="highlighter-rouge">rails console</code> try this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails console
+Loading development environment (Rails 6.0.1)
+[1] pry(main)&gt; helper.markdown("Hello, world!")
+=&gt; "&lt;p&gt;Hello, world!&lt;/p&gt;\n"
+[2] pry(main)&gt;
+</code></pre></div></div>
+</p>
+	  </li>
+
+    
+
+	  <li class="post">
+	  	<h2><a href="/markdown-code-example">Markdown Code Example</a></h2>
+      <time datetime="2019-12-31T00:00:00-08:00" class="by-line"> <i>31 Dec 2019</i> </time>
+	  	<p><p>To insert highlight code inside of a post, it’s enough to use some specific tags, has directly described into the <a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting">Jekyll documentation</a>. In this way the code will be included into a <code class="highlighter-rouge">.highlight</code> CSS class and will be highlight according to the <a href="https://github.com/mojombo/tpw/blob/master/css/syntax.css">syntax.scss</a> file. This is the standard style adopted by <strong>Github</strong> to highlight the code.</p>
+
+<p>This is a CSS example:</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="nt">h1</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#ffaa33</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.5em</span><span class="p">;</span>
+  <span class="p">}</span></code></pre></figure>
+
+<p>And this is a HTML example, with a linenumber:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"example.com"</span><span class="nt">&gt;</span>Example<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Last, a Ruby example:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="k">def</span> <span class="nf">hello</span>
+  <span class="nb">puts</span> <span class="s2">"Hello World!"</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+</p>
+	  </li>
+
+    
+
+	  <li class="post">
+	  	<h2><a href="/typography-example">Typography Example</a></h2>
+      <time datetime="2017-02-14T00:00:00-08:00" class="by-line"> <i>14 Feb 2017</i> </time>
+	  	<p><p><img src="/monochrome/img/img-test.png" alt="Test" title="Test" />
+Lorem ipsum dolor sit amet, <a href="http://www.example.com">consectetur adipisicing</a> elit. Id, aliquam magni et officiis nemo nihil aliquid placeat alias. Eum voluptates ducimus, nobis ex illum laboriosam quidem corrupti impedit ratione in voluptatum amet beatae facilis temporibus voluptate praesentium voluptatibus! At ab, iusto error amet eveniet debitis ipsa recusandae possimus minima sunt itaque, nulla ducimus officia, consequatur ipsum laudantium magnam hic fuga vero incidunt nostrum. Commodi, perspiciatis ut nostrum fugit nulla cumque voluptate harum nemo accusamus?</p>
+
+<h2 id="this-is-a-h2">This is a h2</h2>
+
+<h3 id="h3-h4-h5-and-h6-have-the-same-style">h3, h4, h5 and h6 have the same style.</h3>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas sed quo atque <em>perspiciatis</em>. Eius cum possimus, maxime unde, asperiores neque blanditiis molestiae ipsa odit. <strong>Laboriosam</strong>, error! Ipsa officia magnam at ratione commodi porro nulla consequuntur eum quia nisi officiis cupiditate reprehenderit provident facilis rem, nobis quidem fugiat, et! Tempore maiores reprehenderit laboriosam rerum?</p>
+
+<blockquote>
+  <p>This is a blockquote</p>
+</blockquote>
+
+<h3 id="unordered-list">Unordered list</h3>
+<ul>
+  <li>list 1</li>
+  <li>list 2</li>
+  <li>list 3</li>
+  <li>list 4</li>
+</ul>
+
+<h3 id="ordered-list">Ordered list</h3>
+<ol>
+  <li>one</li>
+  <li>two</li>
+  <li>three</li>
+  <li>four</li>
+</ol>
+</p>
+	  </li>
+
+    
+
+	  <li class="post">
+	  	<h2><a href="/hello-world">Hello World</a></h2>
+      <time datetime="2017-02-10T00:00:00-08:00" class="by-line"> <i>10 Feb 2017</i> </time>
+	  	<p><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam quasi maxime quas repudiandae nam id temporibus, at et non officiis consectetur voluptate deserunt officia minima placeat tempore illum asperiores quo assumenda praesentium? Facilis libero error ratione doloribus debitis delectus asperiores minima ab velit quam. Natus ea, vero totam recusandae autem, corporis minima, animi eos perferendis omnis ut asperiores magni tempore. Repellendus aliquam saepe perspiciatis laborum, excepturi sit libero dignissimos debitis eaque itaque quos, accusantium sed amet tempora temporibus perferendis possimus, quisquam minus fuga! Laudantium, tenetur, consectetur! Quas itaque hic consequatur accusamus consectetur, quia odio eos amet quasi pariatur! Ratione, similique.</p>
+</p>
+	  </li>
+
+    
+
+</ul>
+
+
+	  </main>
+		
+		  <!-- Pagination links -->
+      
+
+	  </div>
+	    
+	    <!-- Footer -->
+	    <footer><span>Find a mistake? <a href="https://twitter.com/veronica_coding">Let me know.</a></span></footer>
+
+
+	    <!-- Script -->
+      <script src="/js/main.js"></script>	
+
+
+	</div>
+</body>
 </html>

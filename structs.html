@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="generator" content="Jekyll">
+
+	<title>Ruby Structs</title>
+  <meta name="description" content="Example usage of structs in Ruby">
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!-- RSS -->
+	<link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">Home</a>
+
+		<!-- Nav pages -->
+	  
+	    
+	  
+	    
+	      <a href="/glossary" title="Glossary">Glossary</a>
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+    
+    <!-- Nav links -->
+	  <a href="http://veronicacannon.com">Me</a>
+
+
+	</div>
+  
+  <!-- Nav footer -->
+	
+	  <footer>
+	
+	<span>version 1.0.0</span>
+
+</footer>
+	
+
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+      
+        <header id="header" class="parent justify-spaceBetween">
+  <div class="inner w100 relative">
+    <span class="f-left">  
+      <a href="/">
+        <h1>
+          <span>veronica </span>| codes
+        </h1>
+      </a>
+    </span>
+    <span id="nav-links" class="absolute right bottom">
+      <!-- Nav pages -->
+	    
+	      
+	    
+	      
+	        <a href="/glossary" title="Glossary">Glossary</a>
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+      
+      <!-- Nav links -->
+	    <a href="http://veronicacannon.com">Me</a>
+
+
+    </span>
+  </div>
+</header>
+
+
+
+
+      
+
+    <!-- Main content -->
+	  <div id="container">
+		  
+		<main>
+
+			<article id="post-page">
+	<h2>Ruby Structs Example</h2>		
+	<time datetime="2020-03-07T00:00:00-08:00" class="by-line">07 Mar 2020</time>
+	<div class="content">
+
+		<p>Structs are a built-in Ruby class that can act like a custom class.  They are great for testing, debugging and playing.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">LunchOrder</span> <span class="o">=</span> <span class="no">Struct</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:drink</span><span class="p">,</span> <span class="ss">:food</span><span class="p">)</span>
+<span class="n">event_order</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">event_order</span> <span class="o">&lt;&lt;</span> <span class="no">LunchOrder</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'hakeem'</span><span class="p">,</span> <span class="s1">'water'</span><span class="p">,</span> <span class="s1">'Mixed Veggie'</span><span class="p">)</span>
+<span class="n">event_order</span> <span class="o">&lt;&lt;</span> <span class="no">LunchOrder</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'selena'</span><span class="p">,</span> <span class="s1">'mango lasse'</span><span class="p">,</span> <span class="s1">'Bangkok Dumplings'</span><span class="p">)</span>
+<span class="n">event_order</span> <span class="o">&lt;&lt;</span> <span class="no">LunchOrder</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'jingyan'</span><span class="p">,</span> <span class="s1">'tea'</span><span class="p">,</span> <span class="s1">'Yellow Curry'</span><span class="p">)</span>
+<span class="n">drinks</span> <span class="o">=</span> <span class="n">event_order</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:drink</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Structs are compared by value equality rather than referential equality.  If two struct objects have the same value they are equal. Classes with the same values are not equal.</p>
+
+<h3 id="references">references</h3>
+
+<p><a href="https://www.leighhalliday.com/ruby-struct">https://www.leighhalliday.com/ruby-struct</a></p>
+
+<p><a href="https://blog.bigbinary.com/2018/01/16/ruby-2-5-allows-creating-structs-with-keyword-arguments.html">https://blog.bigbinary.com/2018/01/16/ruby-2-5-allows-creating-structs-with-keyword-arguments.html</a></p>
+
+<h5 id="keyword-parameters-in-structs-were-introduced-in-ruby-25">Keyword parameters in structs were introduced in Ruby 2.5</h5>
+
+		
+	</div>
+</article>
+
+
+
+	  </main>
+		
+		  <!-- Pagination links -->
+      
+
+	  </div>
+	    
+	    <!-- Footer -->
+	    <footer><span>Find a mistake? <a href="https://twitter.com/veronica_coding">Let me know.</a></span></footer>
+
+
+	    <!-- Script -->
+      <script src="/js/main.js"></script>	
+
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="generator" content="Jekyll">
+
+	<title>Call Helper in Rails Console</title>
+  <meta name="description" content="How to call a Rails helper method from Rails console">
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!-- RSS -->
+	<link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">Home</a>
+
+		<!-- Nav pages -->
+	  
+	    
+	  
+	    
+	      <a href="/glossary" title="Glossary">Glossary</a>
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+    
+    <!-- Nav links -->
+	  <a href="http://veronicacannon.com">Me</a>
+
+
+	</div>
+  
+  <!-- Nav footer -->
+	
+	  <footer>
+	
+	<span>version 1.0.0</span>
+
+</footer>
+	
+
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+      
+        <header id="header" class="parent justify-spaceBetween">
+  <div class="inner w100 relative">
+    <span class="f-left">  
+      <a href="/">
+        <h1>
+          <span>veronica </span>| codes
+        </h1>
+      </a>
+    </span>
+    <span id="nav-links" class="absolute right bottom">
+      <!-- Nav pages -->
+	    
+	      
+	    
+	      
+	        <a href="/glossary" title="Glossary">Glossary</a>
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+      
+      <!-- Nav links -->
+	    <a href="http://veronicacannon.com">Me</a>
+
+
+    </span>
+  </div>
+</header>
+
+
+
+
+      
+
+    <!-- Main content -->
+	  <div id="container">
+		  
+		<main>
+
+			<article id="post-page">
+	<h2>How to Call Rails Helper in Rails Console</h2>		
+	<time datetime="2020-02-28T00:00:00-08:00" class="by-line">28 Feb 2020</time>
+	<div class="content">
+
+		<p>Remember to prefix the method with <code class="highlighter-rouge">helper.</code> to run in rails console.</p>
+
+<p>Given a helper method like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">PostHelper</span>
+  <span class="k">def</span> <span class="nf">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="ss">no_intra_emphasis: </span><span class="kp">true</span><span class="p">,</span> 
+      <span class="ss">fenced_code_blocks: </span><span class="kp">true</span><span class="p">,</span>
+      <span class="ss">gh_blockcode: </span><span class="kp">true</span><span class="p">,</span>   
+      <span class="ss">disable_indented_code_blocks: </span><span class="kp">true</span><span class="p">,</span>
+      <span class="ss">prettify: </span><span class="kp">true</span>
+    <span class="p">]</span>
+    <span class="n">markdown</span> <span class="o">=</span> <span class="no">Redcarpet</span><span class="o">::</span><span class="no">Markdown</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Redcarpet</span><span class="o">::</span><span class="no">Render</span><span class="o">::</span><span class="no">HTML</span><span class="p">,</span> <span class="o">*</span><span class="n">options</span><span class="p">)</span>
+    <span class="n">markdown</span><span class="p">.</span><span class="nf">render</span><span class="p">(</span><span class="n">text</span><span class="p">).</span><span class="nf">html_safe</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>To test in <code class="highlighter-rouge">rails console</code> try this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails console
+Loading development environment (Rails 6.0.1)
+[1] pry(main)&gt; helper.markdown("Hello, world!")
+=&gt; "&lt;p&gt;Hello, world!&lt;/p&gt;\n"
+[2] pry(main)&gt;
+</code></pre></div></div>
+
+		
+	</div>
+</article>
+
+
+
+	  </main>
+		
+		  <!-- Pagination links -->
+      
+
+	  </div>
+	    
+	    <!-- Footer -->
+	    <footer><span>Find a mistake? <a href="https://twitter.com/veronica_coding">Let me know.</a></span></footer>
+
+
+	    <!-- Script -->
+      <script src="/js/main.js"></script>	
+
+
+	</div>
+</body>
+</html>
