@@ -135,6 +135,60 @@
 	
 
 	  <li class="post">
+	  	<h2><a href="/lambdas">Ruby Lambdas Example</a></h2>
+      <time datetime="2020-03-02T00:00:00-08:00" class="by-line"> <i>02 Mar 2020</i> </time>
+	  	<p><p>lambdas allow you to <em>define</em> a block</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">greeting</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="s2">"Hello, world!"</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>lambdas are anonymous when they are not assigned to a variable</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<p>lambdas aren’t executed when they are defined, they are executed then they are called</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">add_one</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="n">add_one</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="c1"># 10</span>
+</code></pre></div></div>
+
+<p>lambdas can be called a couple different ways</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">add_one</span><span class="o">.</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="c1"># 10</span>
+<span class="n">add_one</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="c1"># 10</span>
+</code></pre></div></div>
+
+<h3 id="example-use">example use</h3>
+
+<p>Define a lambda to use a custom method with map</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">add_one</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+  <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">].</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="n">add_one</span><span class="p">)</span> <span class="c1"># [11, 21 31]</span>
+</code></pre></div></div>
+
+<p>Chain lambdas together (currying) for a functional style</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">add_one</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+<span class="n">double_up</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
+<span class="n">decorate</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="s2">" -</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">- "</span> <span class="p">}</span>
+<span class="n">all</span> <span class="o">=</span> <span class="n">add_one</span> <span class="o">&gt;&gt;</span> <span class="n">double_up</span> <span class="o">&gt;&gt;</span> <span class="n">decorate</span>
+<span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">].</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="n">all</span><span class="p">)</span> <span class="c1"># [" -22- ", " -42- ", " -62- "]</span>
+</code></pre></div></div>
+
+<h3 id="references">references</h3>
+
+<p><a href="https://www.honeybadger.io/blog/using-lambdas-in-ruby/">https://www.honeybadger.io/blog/using-lambdas-in-ruby/</a></p>
+
+<p><a href="https://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/">https://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/</a></p>
+
+<h5 id="stabby-lambda-syntax-was-introduced-in-ruby-19">Stabby lambda syntax was introduced in Ruby 1.9</h5>
+</p>
+	  </li>
+
+    
+
+	  <li class="post">
 	  	<h2><a href="/call-helper-rails-console">How to Call Rails Helper in Rails Console</a></h2>
       <time datetime="2020-02-28T00:00:00-08:00" class="by-line"> <i>28 Feb 2020</i> </time>
 	  	<p><p>Remember to prefix the method with <code class="highlighter-rouge">helper.</code> to run in rails console.</p>
@@ -205,31 +259,6 @@ Loading development environment (Rails 6.0.1)
 <span class="k">end</span>
 </pre></td></tr></tbody></table></code></pre></figure>
 
-</p>
-	  </li>
-
-    
-
-	  <li class="post">
-	  	<h2><a href="/wsl_folder">WSL (Windows Subsystem Linux) Folder in Windows</a></h2>
-      <time datetime="2019-03-14T00:00:00-07:00" class="by-line"> <i>14 Mar 2019</i> </time>
-	  	<p><p>Use standard Windows networking paths to view your Linux folders using Windows Explorer.  In the search box, enter:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\\wsl$
-</code></pre></div></div>
-
-<p>That will bring you to the root directory of your Linux install.  To get to your home directory, try something like this, with your version of Linux.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\\wsl$\Ubuntu-18.04\home\
-</code></pre></div></div>
-
-<p>Use Visual Studio Code if you want an editor that works wonderfully with WSL.  Click on the icon on the bottom left corner to connect to your Linux install.</p>
-
-<h3 id="references">references</h3>
-
-<p><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a></p>
-
-<h4 id="windows-subsystem-linux-runs-under-insider-build-for-windows-10">Windows Subsystem Linux runs under Insider Build for Windows 10.</h4>
 </p>
 	  </li>
 
