@@ -7,8 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<meta name="generator" content="Jekyll">
 
-	<title>Glossary</title>
-  <meta name="description" content="This glossary is a random collection of definitions.">
+	<title>WSL Folder in Windows</title>
+  <meta name="description" content="How to Access your Windows Subsystem Linux directory from the Windows Side">
 
 	<!-- CSS & fonts -->
 	<link rel="stylesheet" href="/css/main.css">
@@ -125,74 +125,34 @@
 		  
 		<main>
 
-			<article id="page">
-	
-  <h1 id="glossary">Glossary</h1>
+			<article id="post-page">
+	<h2>WSL (Windows Subsystem Linux) Folder in Windows</h2>		
+	<time datetime="2019-03-14T00:00:00-07:00" class="by-line">14 Mar 2019</time>
+	<div class="content">
 
-<h2 id="wsl">WSL</h2>
-<p>Windows Subsystem Linux - a way to run Linux on your Windows 10 computer.</p>
+		<p>Use standard Windows networking paths to view your Linux folders using Windows Explorer.  In the search box, enter:</p>
 
-<hr />
-
-<h2 id="wimp">WIMP</h2>
-<p>Windows
-Icons
-Menus
-Pointers</p>
-
-<hr />
-
-<h2 id="repl">REPL</h2>
-<ul>
-  <li>read</li>
-  <li>evaluate</li>
-  <li>print</li>
-  <li>loop</li>
-</ul>
-
-<hr />
-
-<h2 id="persistence">Persistence</h2>
-<p>State preserved when program quits and restarts.</p>
-
-<hr />
-
-<h2 id="recursion">Recursion</h2>
-<p>A recursive algorithm must:</p>
-<ol>
-  <li>Have a base case; an escape clause from the function</li>
-  <li>Change its state and move toward base case</li>
-  <li>Call itself recursively</li>
-</ol>
-
-<hr />
-
-<h2 id="algorithm">Algorithm</h2>
-<p>An algorithm is a step by step list of instructions to solve a problem.<br />
-Basic instructions:</p>
-<ul>
-  <li>input</li>
-  <li>output</li>
-  <li>math and logic</li>
-  <li>conditional execution</li>
-  <li>repetition</li>
-</ul>
-
-<hr />
-
-<h2 id="resource">Resource</h2>
-<p>A URN is similar to a person’s name, while a URL is like a street address. The URN defines something’s identity, while the URL provides a location. Essentially, “what” vs. “where”. A URN has to be of this form <URN> ::= "urn:" <NID> ":" <NSS> where <NID> is the Namespace Identifier, and <NSS> is the Namespace Specific String.</NSS></NID></NSS></NID></URN></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    A URL is a URI that:
-    1) identifies a resource
-    2) provides the means of locating the resource by describing the way to access it
-    A URL is a URI
-    A URI is not necessarily a URL
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\\wsl$
 </code></pre></div></div>
 
+<p>That will bring you to the root directory of your Linux install.  To get to your home directory, try something like this, with your version of Linux.</p>
 
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>\\wsl$\Ubuntu-18.04\home\
+</code></pre></div></div>
 
+<p>Use Visual Studio Code if you want an editor that works wonderfully with WSL.  Click on the icon on the bottom left corner to connect to your Linux install.</p>
+
+<h3 id="references">references</h3>
+
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a></p>
+
+<h4 id="windows-subsystem-linux-runs-under-insider-build-for-windows-10">Windows Subsystem Linux runs under Insider Build for Windows 10.</h4>
+
+		
+	</div>
 </article>
+
+
 
 	  </main>
 		
