@@ -169,11 +169,28 @@
 <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">].</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="n">all</span><span class="p">)</span> <span class="c1"># [" -22- ", " -42- ", " -62- "]</span>
 </code></pre></div></div>
 
+<h3 id="with-parameters">with parameters</h3>
+
+<p>lambdas can take parameters as well.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">yoda_answer</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">string</span><span class="o">|</span>
+  <span class="k">if</span> <span class="n">string</span> <span class="o">==</span> <span class="s2">"try"</span>
+    <span class="k">return</span> <span class="s2">"There is no such thing"</span> 
+  <span class="k">else</span>
+    <span class="k">return</span> <span class="s2">"Do or do not."</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="nb">puts</span> <span class="n">yoda_answer</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">"try"</span><span class="p">)</span> <span class="c1"># There is no such thing.</span>
+<span class="nb">puts</span> <span class="n">yoda_answer</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">"do"</span><span class="p">)</span> <span class="c1"># Do or do not.</span>
+</code></pre></div></div>
+
 <h3 id="references">references</h3>
 
 <p><a href="https://www.honeybadger.io/blog/using-lambdas-in-ruby/">https://www.honeybadger.io/blog/using-lambdas-in-ruby/</a></p>
 
 <p><a href="https://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/">https://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/</a></p>
+
+<p><a href="https://www.rubymonk.com/learning/books/1-ruby-primer/chapters/34-lambdas-and-blocks-in-ruby/lessons/77-lambdas-in-ruby">https://www.rubymonk.com/learning/books/1-ruby-primer/chapters/34-lambdas-and-blocks-in-ruby/lessons/77-lambdas-in-ruby</a></p>
 
 <h5 id="stabby-lambda-syntax-was-introduced-in-ruby-19">Stabby lambda syntax was introduced in Ruby 1.9</h5>
 

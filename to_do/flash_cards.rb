@@ -370,6 +370,9 @@ my_hash = Hash.new("cheese")	set default on hash, instead of fetch
 ===========================================================================
 splat operator
 
+The list of parameters passed to an object is, in fact, available as a list. 
+To do this, we use what is called the splat operator - which is just an asterisk (*).
+
 *	go("a","b","c")
 **	go(x: 100, y: 200)
 
@@ -436,3 +439,10 @@ my_calculator.send(:add, 3, 4)
 Dot notation is a more common way to send messages (i..e my_calculator.add(3, 4)), but the send() method can also be used to send messages.
 
 
+===========================================================================
+methods
+The return keyword specifies the object to be returned to the caller when the method has done its work. 
+If no return keyword is specified, the object created by the last line in the method is automatically 
+treated as the return value. A method must always return exactly one object.
+
+Calling return without specifying an object to return results in a nil, which is returned by default. 
