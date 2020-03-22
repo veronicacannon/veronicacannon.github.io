@@ -130,7 +130,9 @@
 	<time datetime="2020-03-14T00:00:00-07:00" class="by-line">14 Mar 2020</time>
 	<div class="content">
 
-		<p>Use standard Windows networking paths to view your Linux folders using Windows Explorer.  In the search box, enter:</p>
+		<h3 id="from-the-windows-side">From the Windows side</h3>
+
+<p>Use standard Windows networking paths to view your Linux folders using Windows Explorer.  In the search box, enter:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  \\wsl$
 </code></pre></div></div>
@@ -140,7 +142,16 @@
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  \\wsl$\Ubuntu-18.04\home\
 </code></pre></div></div>
 
-<p>Use Visual Studio Code if you want an editor that works wonderfully with WSL.  Click on the icon on the bottom left corner to connect to your Linux install.</p>
+<h3 id="from-the-linux-side">From the Linux side</h3>
+
+<p>From Windows terminal or your Linux distribution such as Ubuntu, enter:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  explorer.exe .
+</code></pre></div></div>
+
+<p>This will open up Windows Explorer in the folder where you were in Linux.</p>
+
+<p>Use Visual Studio Code if you want an editor that works wonderfully with WSL.  Within VSCode, click on the icon on the bottom left corner to connect to your Linux install.</p>
 
 <h3 id="references">references</h3>
 
