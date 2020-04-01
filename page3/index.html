@@ -7,8 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<meta name="generator" content="Jekyll">
 
-	<title>Ruby Lambdas</title>
-  <meta name="description" content="Example cases for lambdas in ruby">
+	<title>veronica | codes</title>
+  <meta name="description" content="A minimal, responsive, ready to use blog template, built with Jekyll.">
 
 	<!-- CSS & fonts -->
 	<link rel="stylesheet" href="/css/main.css">
@@ -36,6 +36,8 @@
 	  
 	    
 	      <a href="/glossary" title="Glossary">Glossary</a>
+	    
+	  
 	    
 	  
 	    
@@ -110,6 +112,8 @@
 	    
 	      
 	    
+	      
+	    
       
       <!-- Nav links -->
 	    <a href="http://veronicacannon.com">Me</a>
@@ -129,12 +133,15 @@
 		  
 		<main>
 
-			<article id="post-page">
-	<h2>Ruby Lambdas Example</h2>		
-	<time datetime="2020-03-02T00:00:00-08:00" class="by-line">02 Mar 2020</time>
-	<div class="content">
+			<!-- Posts -->
+<ul id="posts">
 
-		<p>lambdas allow you to <em>define</em> a block</p>
+	
+
+	  <li class="post">
+	  	<h2><a href="/lambdas">Ruby Lambdas Example</a></h2>
+      <time datetime="2020-03-02T00:00:00-08:00" class="by-line"> <i>02 Mar 2020</i> </time>
+	  	<p><p>lambdas allow you to <em>define</em> a block</p>
 
 <div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">greeting</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="s2">"Hello, world!"</span> <span class="p">}</span>
 </code></pre></div></div>
@@ -197,17 +204,118 @@
 <p><a href="https://www.rubymonk.com/learning/books/1-ruby-primer/chapters/34-lambdas-and-blocks-in-ruby/lessons/77-lambdas-in-ruby">https://www.rubymonk.com/learning/books/1-ruby-primer/chapters/34-lambdas-and-blocks-in-ruby/lessons/77-lambdas-in-ruby</a></p>
 
 <h5 id="stabby-lambda-syntax-was-introduced-in-ruby-19">Stabby lambda syntax was introduced in Ruby 1.9</h5>
+</p>
+	  </li>
 
-		
-	</div>
-</article>
+    
 
+	  <li class="post">
+	  	<h2><a href="/call-helper-rails-console">How to Call Rails Helper in Rails Console</a></h2>
+      <time datetime="2020-02-28T00:00:00-08:00" class="by-line"> <i>28 Feb 2020</i> </time>
+	  	<p><p>Remember to prefix the method with <code class="highlighter-rouge">helper.</code> to run in rails console.</p>
+
+<p>Given a helper method like this:</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">PostHelper</span>
+  <span class="k">def</span> <span class="nf">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+    <span class="n">options</span> <span class="o">=</span> <span class="p">[</span>
+      <span class="ss">no_intra_emphasis: </span><span class="kp">true</span><span class="p">,</span> 
+      <span class="ss">fenced_code_blocks: </span><span class="kp">true</span><span class="p">,</span>
+      <span class="ss">gh_blockcode: </span><span class="kp">true</span><span class="p">,</span>   
+      <span class="ss">disable_indented_code_blocks: </span><span class="kp">true</span><span class="p">,</span>
+      <span class="ss">prettify: </span><span class="kp">true</span>
+    <span class="p">]</span>
+    <span class="n">markdown</span> <span class="o">=</span> <span class="no">Redcarpet</span><span class="o">::</span><span class="no">Markdown</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Redcarpet</span><span class="o">::</span><span class="no">Render</span><span class="o">::</span><span class="no">HTML</span><span class="p">,</span> <span class="o">*</span><span class="n">options</span><span class="p">)</span>
+    <span class="n">markdown</span><span class="p">.</span><span class="nf">render</span><span class="p">(</span><span class="n">text</span><span class="p">).</span><span class="nf">html_safe</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>To test in <code class="highlighter-rouge">rails console</code> try this:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails console
+Loading development environment (Rails 6.0.1)
+[1] pry(main)&gt; helper.markdown("Hello, world!")
+=&gt; "&lt;p&gt;Hello, world!&lt;/p&gt;\n"
+[2] pry(main)&gt;
+</code></pre></div></div>
+</p>
+	  </li>
+
+    
+
+	  <li class="post">
+	  	<h2><a href="/markdown-code-example">Markdown Code Example</a></h2>
+      <time datetime="2019-12-31T00:00:00-08:00" class="by-line"> <i>31 Dec 2019</i> </time>
+	  	<p><p>To insert highlight code inside of a post, it’s enough to use some specific tags, has directly described into the <a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting">Jekyll documentation</a>. In this way the code will be included into a <code class="highlighter-rouge">.highlight</code> CSS class and will be highlight according to the <a href="https://github.com/mojombo/tpw/blob/master/css/syntax.css">syntax.scss</a> file. This is the standard style adopted by <strong>Github</strong> to highlight the code.</p>
+
+<p>This is a CSS example:</p>
+
+<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">body</span> <span class="p">{</span>
+  <span class="nl">background-color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+  <span class="p">}</span>
+
+<span class="nt">h1</span> <span class="p">{</span>
+  <span class="nl">color</span><span class="p">:</span> <span class="m">#ffaa33</span><span class="p">;</span>
+  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.5em</span><span class="p">;</span>
+  <span class="p">}</span></code></pre></figure>
+
+<p>And this is a HTML example, with a linenumber:</p>
+
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"example.com"</span><span class="nt">&gt;</span>Example<span class="nt">&lt;/a&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Last, a Ruby example:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="code"><pre><span class="k">def</span> <span class="nf">hello</span>
+  <span class="nb">puts</span> <span class="s2">"Hello World!"</span>
+<span class="k">end</span>
+</pre></td></tr></tbody></table></code></pre></figure>
+
+</p>
+	  </li>
+
+    
+
+</ul>
 
 
 	  </main>
 		
 		  <!-- Pagination links -->
       
+        <div class="pagination">
+          
+            <a href="/page2/" class="page-item">&laquo;</a>
+          
+        
+          
+            
+              <a href="/" class="page-item">1</a>
+            
+          
+            
+              <a href="/page2/" class="page-item">2</a>
+            
+          
+            
+              <span class="page-item">3</span>
+            
+          
+        
+          
+            <span class="page-item">&raquo;</span>
+          
+        </div>
+        
 
 	  </div>
 	    

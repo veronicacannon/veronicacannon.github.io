@@ -52,6 +52,8 @@
 	  
 	    
 	  
+	    
+	  
     
     <!-- Nav links -->
 	  <a href="http://veronicacannon.com">Me</a>
@@ -110,6 +112,8 @@
 	    
 	      
 	    
+	      
+	    
       
       <!-- Nav links -->
 	    <a href="http://veronicacannon.com">Me</a>
@@ -135,147 +139,97 @@
 	
 
 	  <li class="post">
-	  	<h2><a href="/lambdas">Ruby Lambdas Example</a></h2>
-      <time datetime="2020-03-02T00:00:00-08:00" class="by-line"> <i>02 Mar 2020</i> </time>
-	  	<p><p>lambdas allow you to <em>define</em> a block</p>
+	  	<h2><a href="/wsl-folder">WSL (Windows Subsystem Linux) Folder in Windows</a></h2>
+      <time datetime="2020-03-14T00:00:00-07:00" class="by-line"> <i>14 Mar 2020</i> </time>
+	  	<p><h3 id="from-the-windows-side">From the Windows side</h3>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">greeting</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">{</span> <span class="s2">"Hello, world!"</span> <span class="p">}</span>
+<p>Use standard Windows networking paths to view your Linux folders using Windows Explorer.  In the search box, enter:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  \\wsl$
 </code></pre></div></div>
 
-<p>lambdas are anonymous when they are not assigned to a variable</p>
+<p>That will bring you to the root directory of your Linux install.  To get to your home directory, try something like this, with your version of Linux.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  \\wsl$\Ubuntu-18.04\home\
 </code></pre></div></div>
 
-<p>lambdas aren’t executed when they are defined, they are executed then they are called</p>
+<h3 id="from-the-linux-side">From the Linux side</h3>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">add_one</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
-<span class="n">add_one</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="c1"># 10</span>
+<p>From Windows terminal or your Linux distribution such as Ubuntu, enter:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  explorer.exe .
 </code></pre></div></div>
 
-<p>lambdas can be called a couple different ways</p>
+<p>This will open up Windows Explorer in the folder where you were in Linux.</p>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">add_one</span><span class="o">.</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span> <span class="c1"># 10</span>
-<span class="n">add_one</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="c1"># 10</span>
-</code></pre></div></div>
-
-<h3 id="example-use">example use</h3>
-
-<p>Define a lambda to use a custom method with map</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">add_one</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
-  <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">].</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="n">add_one</span><span class="p">)</span> <span class="c1"># [11, 21 31]</span>
-</code></pre></div></div>
-
-<p>Chain lambdas together (currying) for a functional style</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">add_one</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
-<span class="n">double_up</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">}</span>
-<span class="n">decorate</span> <span class="o">=</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="s2">" -</span><span class="si">#{</span><span class="n">x</span><span class="si">}</span><span class="s2">- "</span> <span class="p">}</span>
-<span class="n">all</span> <span class="o">=</span> <span class="n">add_one</span> <span class="o">&gt;&gt;</span> <span class="n">double_up</span> <span class="o">&gt;&gt;</span> <span class="n">decorate</span>
-<span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">].</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="n">all</span><span class="p">)</span> <span class="c1"># [" -22- ", " -42- ", " -62- "]</span>
-</code></pre></div></div>
-
-<h3 id="with-parameters">with parameters</h3>
-
-<p>lambdas can take parameters as well.</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">yoda_answer</span> <span class="o">=</span> <span class="nb">lambda</span> <span class="k">do</span> <span class="o">|</span><span class="n">string</span><span class="o">|</span>
-  <span class="k">if</span> <span class="n">string</span> <span class="o">==</span> <span class="s2">"try"</span>
-    <span class="k">return</span> <span class="s2">"There is no such thing"</span> 
-  <span class="k">else</span>
-    <span class="k">return</span> <span class="s2">"Do or do not."</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-<span class="nb">puts</span> <span class="n">yoda_answer</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">"try"</span><span class="p">)</span> <span class="c1"># There is no such thing.</span>
-<span class="nb">puts</span> <span class="n">yoda_answer</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="s2">"do"</span><span class="p">)</span> <span class="c1"># Do or do not.</span>
-</code></pre></div></div>
+<p>Use Visual Studio Code if you want an editor that works wonderfully with WSL.  Within VSCode, click on the icon on the bottom left corner to connect to your Linux install.</p>
 
 <h3 id="references">references</h3>
 
-<p><a href="https://www.honeybadger.io/blog/using-lambdas-in-ruby/">https://www.honeybadger.io/blog/using-lambdas-in-ruby/</a></p>
+<p><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a></p>
 
-<p><a href="https://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/">https://www.rubyguides.com/2016/02/ruby-procs-and-lambdas/</a></p>
-
-<p><a href="https://www.rubymonk.com/learning/books/1-ruby-primer/chapters/34-lambdas-and-blocks-in-ruby/lessons/77-lambdas-in-ruby">https://www.rubymonk.com/learning/books/1-ruby-primer/chapters/34-lambdas-and-blocks-in-ruby/lessons/77-lambdas-in-ruby</a></p>
-
-<h5 id="stabby-lambda-syntax-was-introduced-in-ruby-19">Stabby lambda syntax was introduced in Ruby 1.9</h5>
+<h4 id="windows-subsystem-linux-runs-under-insider-build-for-windows-10">Windows Subsystem Linux runs under Insider Build for Windows 10.</h4>
 </p>
 	  </li>
 
     
 
 	  <li class="post">
-	  	<h2><a href="/call-helper-rails-console">How to Call Rails Helper in Rails Console</a></h2>
-      <time datetime="2020-02-28T00:00:00-08:00" class="by-line"> <i>28 Feb 2020</i> </time>
-	  	<p><p>Remember to prefix the method with <code class="highlighter-rouge">helper.</code> to run in rails console.</p>
+	  	<h2><a href="/structs">Ruby Structs Example</a></h2>
+      <time datetime="2020-03-07T00:00:00-08:00" class="by-line"> <i>07 Mar 2020</i> </time>
+	  	<p><p>Structs are a built-in Ruby class that can act like a custom class.  They are great for testing, debugging and playing.</p>
 
-<p>Given a helper method like this:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">LunchOrder</span> <span class="o">=</span> <span class="no">Struct</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:drink</span><span class="p">,</span> <span class="ss">:food</span><span class="p">)</span>
+<span class="n">event_order</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">event_order</span> <span class="o">&lt;&lt;</span> <span class="no">LunchOrder</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'hakeem'</span><span class="p">,</span> <span class="s1">'water'</span><span class="p">,</span> <span class="s1">'Mixed Veggie'</span><span class="p">)</span>
+<span class="n">event_order</span> <span class="o">&lt;&lt;</span> <span class="no">LunchOrder</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'selena'</span><span class="p">,</span> <span class="s1">'mango lasse'</span><span class="p">,</span> <span class="s1">'Bangkok Dumplings'</span><span class="p">)</span>
+<span class="n">event_order</span> <span class="o">&lt;&lt;</span> <span class="no">LunchOrder</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s1">'jingyan'</span><span class="p">,</span> <span class="s1">'tea'</span><span class="p">,</span> <span class="s1">'Yellow Curry'</span><span class="p">)</span>
+<span class="n">drinks</span> <span class="o">=</span> <span class="n">event_order</span><span class="p">.</span><span class="nf">map</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:drink</span><span class="p">)</span>
+</code></pre></div></div>
 
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">module</span> <span class="nn">PostHelper</span>
-  <span class="k">def</span> <span class="nf">markdown</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
-    <span class="n">options</span> <span class="o">=</span> <span class="p">[</span>
-      <span class="ss">no_intra_emphasis: </span><span class="kp">true</span><span class="p">,</span> 
-      <span class="ss">fenced_code_blocks: </span><span class="kp">true</span><span class="p">,</span>
-      <span class="ss">gh_blockcode: </span><span class="kp">true</span><span class="p">,</span>   
-      <span class="ss">disable_indented_code_blocks: </span><span class="kp">true</span><span class="p">,</span>
-      <span class="ss">prettify: </span><span class="kp">true</span>
-    <span class="p">]</span>
-    <span class="n">markdown</span> <span class="o">=</span> <span class="no">Redcarpet</span><span class="o">::</span><span class="no">Markdown</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="no">Redcarpet</span><span class="o">::</span><span class="no">Render</span><span class="o">::</span><span class="no">HTML</span><span class="p">,</span> <span class="o">*</span><span class="n">options</span><span class="p">)</span>
-    <span class="n">markdown</span><span class="p">.</span><span class="nf">render</span><span class="p">(</span><span class="n">text</span><span class="p">).</span><span class="nf">html_safe</span>
+<p>Structs are compared by value equality rather than referential equality.  If two struct objects have the same value they are equal. Classes with the same values are not equal.</p>
+
+<h3 id="references">references</h3>
+
+<p><a href="https://www.leighhalliday.com/ruby-struct">https://www.leighhalliday.com/ruby-struct</a></p>
+
+<p><a href="https://blog.bigbinary.com/2018/01/16/ruby-2-5-allows-creating-structs-with-keyword-arguments.html">https://blog.bigbinary.com/2018/01/16/ruby-2-5-allows-creating-structs-with-keyword-arguments.html</a></p>
+
+<h4 id="keyword-parameters-in-structs-were-introduced-in-ruby-25">Keyword parameters in structs were introduced in Ruby 2.5</h4>
+</p>
+	  </li>
+
+    
+
+	  <li class="post">
+	  	<h2><a href="/long-lines">How to Split Long Lines in Rspec</a></h2>
+      <time datetime="2020-03-03T00:00:00-08:00" class="by-line"> <i>03 Mar 2020</i> </time>
+	  	<p><p>It can be challenging to know where to break a long line in ruby.  Especially when writing tests in rspec.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">PostHelper</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="ss">:helper</span> <span class="k">do</span>
+  <span class="n">describe</span> <span class="s1">'#markdown'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'returns code blocks'</span> <span class="k">do</span>
+      <span class="n">blog_text</span> <span class="o">=</span> <span class="s2">"```ruby</span><span class="se">\n</span><span class="s2">Hello, World!</span><span class="se">\n</span><span class="s2">```"</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">helper</span><span class="p">.</span><span class="nf">markdown</span><span class="p">(</span><span class="n">blog_text</span><span class="p">)).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s2">"&lt;pre&gt;&lt;code class=</span><span class="se">\"</span><span class="s2">ruby</span><span class="se">\"</span><span class="s2">&gt;Hello, World!</span><span class="se">\n</span><span class="s2">&lt;/code&gt;&lt;/pre&gt;</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
 </code></pre></div></div>
 
-<p>To test in <code class="highlighter-rouge">rails console</code> try this:</p>
+<p>One technique is to find the method call, <code class="highlighter-rouge">.to</code> in the example above, and break it there.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails console
-Loading development environment (Rails 6.0.1)
-[1] pry(main)&gt; helper.markdown("Hello, world!")
-=&gt; "&lt;p&gt;Hello, world!&lt;/p&gt;\n"
-[2] pry(main)&gt;
-</code></pre></div></div>
-</p>
-	  </li>
-
-    
-
-	  <li class="post">
-	  	<h2><a href="/markdown-code-example">Markdown Code Example</a></h2>
-      <time datetime="2019-12-31T00:00:00-08:00" class="by-line"> <i>31 Dec 2019</i> </time>
-	  	<p><p>To insert highlight code inside of a post, it’s enough to use some specific tags, has directly described into the <a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting">Jekyll documentation</a>. In this way the code will be included into a <code class="highlighter-rouge">.highlight</code> CSS class and will be highlight according to the <a href="https://github.com/mojombo/tpw/blob/master/css/syntax.css">syntax.scss</a> file. This is the standard style adopted by <strong>Github</strong> to highlight the code.</p>
-
-<p>This is a CSS example:</p>
-
-<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">body</span> <span class="p">{</span>
-  <span class="nl">background-color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
-  <span class="p">}</span>
-
-<span class="nt">h1</span> <span class="p">{</span>
-  <span class="nl">color</span><span class="p">:</span> <span class="m">#ffaa33</span><span class="p">;</span>
-  <span class="nl">font-size</span><span class="p">:</span> <span class="m">1.5em</span><span class="p">;</span>
-  <span class="p">}</span></code></pre></figure>
-
-<p>And this is a HTML example, with a linenumber:</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="code"><pre><span class="nt">&lt;html&gt;</span>
-  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"example.com"</span><span class="nt">&gt;</span>Example<span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
-</pre></td></tr></tbody></table></code></pre></figure>
-
-<p>Last, a Ruby example:</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
-2
-3
-</pre></td><td class="code"><pre><span class="k">def</span> <span class="nf">hello</span>
-  <span class="nb">puts</span> <span class="s2">"Hello World!"</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">PostHelper</span><span class="p">,</span> <span class="ss">:type</span> <span class="o">=&gt;</span> <span class="ss">:helper</span> <span class="k">do</span>
+  <span class="n">describe</span> <span class="s1">'#markdown'</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s1">'returns code blocks'</span> <span class="k">do</span>
+      <span class="n">blog_text</span> <span class="o">=</span> <span class="s2">"```ruby</span><span class="se">\n</span><span class="s2">Hello, World!</span><span class="se">\n</span><span class="s2">```"</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">helper</span><span class="p">.</span><span class="nf">markdown</span><span class="p">(</span><span class="n">blog_text</span><span class="p">)).</span>
+        <span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s2">"&lt;pre&gt;&lt;code class=</span><span class="se">\"</span><span class="s2">ruby</span><span class="se">\"</span><span class="s2">&gt;Hello, World!</span><span class="se">\n</span><span class="s2">&lt;/code&gt;&lt;/pre&gt;</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
 <span class="k">end</span>
-</pre></td></tr></tbody></table></code></pre></figure>
+</code></pre></div></div>
 
+<p><a href="https://docs.rubocop.org/en/stable/">Rubocop</a> can help improve your ruby style.  Rubocop is available as an extension in Visual Studio code.</p>
 </p>
 	  </li>
 
@@ -302,9 +256,13 @@ Loading development environment (Rails 6.0.1)
               <span class="page-item">2</span>
             
           
+            
+              <a href="/page3/" class="page-item">3</a>
+            
+          
         
           
-            <span class="page-item">&raquo;</span>
+            <a href="/page3/" class="page-item">&raquo;</a>
           
         </div>
         

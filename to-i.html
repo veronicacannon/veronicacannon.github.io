@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="generator" content="Jekyll">
+
+	<title>Ruby to_i</title>
+  <meta name="description" content="Ways to Convert String to Integer">
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+
+	<!-- RSS -->
+	<link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" />
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/png" href="img/favicon.png">
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">Home</a>
+
+		<!-- Nav pages -->
+	  
+	    
+	  
+	    
+	      <a href="/glossary" title="Glossary">Glossary</a>
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+    
+    <!-- Nav links -->
+	  <a href="http://veronicacannon.com">Me</a>
+
+
+	</div>
+  
+  <!-- Nav footer -->
+	
+	  <footer>
+	
+	<span>version 1.0.0</span>
+
+</footer>
+	
+
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+      
+        <header id="header" class="parent justify-spaceBetween">
+  <div class="inner w100 relative">
+    <span class="f-left">  
+      <a href="/">
+        <h1>
+          <span>veronica </span>| codes
+        </h1>
+      </a>
+    </span>
+    <span id="nav-links" class="absolute right bottom">
+      <!-- Nav pages -->
+	    
+	      
+	    
+	      
+	        <a href="/glossary" title="Glossary">Glossary</a>
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+	      
+	    
+      
+      <!-- Nav links -->
+	    <a href="http://veronicacannon.com">Me</a>
+
+
+    </span>
+  </div>
+</header>
+
+
+
+
+      
+
+    <!-- Main content -->
+	  <div id="container">
+		  
+		<main>
+
+			<article id="post-page">
+	<h2>Ruby to_i</h2>		
+	<time datetime="2020-04-04T00:00:00-07:00" class="by-line">04 Apr 2020</time>
+	<div class="content">
+
+		<p><code class="highlighter-rouge">.to_i</code> is frequently used to convert a string value to an integer.  This method has a couple tricks up it’s sleeve. And if all the tricks fail, it returns zero instead of an exception.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">last_order</span> <span class="o">=</span> <span class="s2">"10"</span>
+<span class="n">next_order_number</span> <span class="o">=</span> <span class="n">last_order</span><span class="p">.</span><span class="nf">to_i</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">address</span> <span class="o">=</span> <span class="s2">"10B"</span><span class="p">.</span><span class="nf">to_i</span> <span class="c1"># returns 10</span>
+<span class="n">distance</span> <span class="o">=</span> <span class="s2">"100km"</span><span class="p">.</span><span class="nf">to_i</span> <span class="c1"># returns 100</span>
+
+<span class="n">invoice_number</span> <span class="o">=</span> <span class="s2">"ooops"</span><span class="p">.</span><span class="nf">to_i</span> <span class="c1"># returns 0</span>
+</code></pre></div></div>
+
+<p>However, the alternative way to convert to integer, <code class="highlighter-rouge">Integer</code> isn’t quite so easy going.  But it has some tricks too; it can take base as argument.</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">address</span> <span class="o">=</span> <span class="no">Integer</span><span class="p">(</span><span class="s2">"10B"</span><span class="p">)</span> <span class="c1"># ArgumentError (invalid value for Integer(): "10B")</span>
+<span class="no">Integer</span><span class="p">(</span><span class="s1">'111'</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># returns 7, as 2 indicates base 2</span>
+<span class="no">Integer</span><span class="p">(</span><span class="s1">'0x100'</span><span class="p">)</span> <span class="c1"># returns 256</span>
+<span class="s1">'0x100'</span><span class="p">.</span><span class="nf">to_i</span> <span class="c1"># returns 0</span>
+</code></pre></div></div>
+
+		
+	</div>
+</article>
+
+
+
+	  </main>
+		
+		  <!-- Pagination links -->
+      
+
+	  </div>
+	    
+	    <!-- Footer -->
+	    <footer><span>Find a mistake? <a href="https://twitter.com/veronica_coding">Let me know.</a></span></footer>
+
+
+	    <!-- Script -->
+      <script src="/js/main.js"></script>	
+
+
+	</div>
+</body>
+</html>

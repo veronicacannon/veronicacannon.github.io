@@ -7,8 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<meta name="generator" content="Jekyll">
 
-	<title>WSL Folder in Windows</title>
-  <meta name="description" content="How to Access your Windows Subsystem Linux directory from the Windows Side">
+	<title>Why Ruby Methods Return 'nil'</title>
+  <meta name="description" content="The reason why Ruby methods return 'nil'">
 
 	<!-- CSS & fonts -->
 	<link rel="stylesheet" href="/css/main.css">
@@ -130,38 +130,33 @@
 		<main>
 
 			<article id="post-page">
-	<h2>WSL (Windows Subsystem Linux) Folder in Windows</h2>		
-	<time datetime="2020-03-14T00:00:00-07:00" class="by-line">14 Mar 2020</time>
+	<h2>Why Ruby Methods Return 'nil'</h2>		
+	<time datetime="2020-03-29T00:00:00-07:00" class="by-line">29 Mar 2020</time>
 	<div class="content">
 
-		<h3 id="from-the-windows-side">From the Windows side</h3>
+		<p>In Ruby, the <code class="highlighter-rouge">return</code> keyword stops the execution flow of a method.  It’s 
+commonly used with guard clauses, which are a conditional statement at the 
+top of a function.</p>
 
-<p>Use standard Windows networking paths to view your Linux folders using Windows Explorer.  In the search box, enter:</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">currency</span><span class="p">(</span><span class="n">minor_currency</span><span class="p">)</span>
+  <span class="k">return</span> <span class="s2">"0.00"</span> <span class="k">unless</span> <span class="n">minor_currency</span><span class="p">.</span><span class="nf">class</span> <span class="o">==</span> <span class="no">Integer</span>
+  <span class="n">major_currency</span> <span class="o">=</span> <span class="n">minor_currency</span> <span class="o">/</span> <span class="mi">100</span><span class="p">.</span><span class="nf">to_f</span>
+  <span class="s1">'%.2f'</span> <span class="o">%</span> <span class="n">major_currency</span>
+<span class="k">end</span>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  \\wsl$
+<span class="n">currency</span><span class="p">(</span><span class="mi">1999</span><span class="p">)</span> <span class="c1"># 19.99</span>
 </code></pre></div></div>
 
-<p>That will bring you to the root directory of your Linux install.  To get to your home directory, try something like this, with your version of Linux.</p>
+<p>The return keyword specifies the object to be returned to the caller when the method has done its work.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  \\wsl$\Ubuntu-18.04\home\
-</code></pre></div></div>
+<p>If no return keyword is specified, the object created by the last line in the method is automatically treated as the return value. A method must always return exactly one object.</p>
 
-<h3 id="from-the-linux-side">From the Linux side</h3>
-
-<p>From Windows terminal or your Linux distribution such as Ubuntu, enter:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  explorer.exe .
-</code></pre></div></div>
-
-<p>This will open up Windows Explorer in the folder where you were in Linux.</p>
-
-<p>Use Visual Studio Code if you want an editor that works wonderfully with WSL.  Within VSCode, click on the icon on the bottom left corner to connect to your Linux install.</p>
+<p>Calling return without specifying an object to return results in a nil, which is returned by default.</p>
 
 <h3 id="references">references</h3>
 
-<p><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a></p>
+<p><a href="https://www.thechrisoshow.com/2009/02/16/using-guard-clauses-in-your-ruby-code/">https://www.thechrisoshow.com/2009/02/16/using-guard-clauses-in-your-ruby-code/</a></p>
 
-<h4 id="windows-subsystem-linux-runs-under-insider-build-for-windows-10">Windows Subsystem Linux runs under Insider Build for Windows 10.</h4>
 
 		
 	</div>

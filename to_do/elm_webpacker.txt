@@ -1,0 +1,5 @@
+How to install Elm if Rails is already set up with webpacker:
+./bin/rails webpacker:install:elm
+
+To compile webpacker:
+bundle exec rails webpacker:compile

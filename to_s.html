@@ -7,8 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<meta name="generator" content="Jekyll">
 
-	<title>WSL Folder in Windows</title>
-  <meta name="description" content="How to Access your Windows Subsystem Linux directory from the Windows Side">
+	<title>Ruby to_s</title>
+  <meta name="description" content="Unexpected To String Methods">
 
 	<!-- CSS & fonts -->
 	<link rel="stylesheet" href="/css/main.css">
@@ -130,38 +130,23 @@
 		<main>
 
 			<article id="post-page">
-	<h2>WSL (Windows Subsystem Linux) Folder in Windows</h2>		
-	<time datetime="2020-03-14T00:00:00-07:00" class="by-line">14 Mar 2020</time>
+	<h2>Ruby to_s</h2>		
+	<time datetime="2020-03-22T00:00:00-07:00" class="by-line">22 Mar 2020</time>
 	<div class="content">
 
-		<h3 id="from-the-windows-side">From the Windows side</h3>
+		<p>It’s not uncommon to use <code class="highlighter-rouge">.to_s</code> in Ruby to cast a number to string.<br />
+It’s also a way to take an API response in a hash and log it safely.</p>
 
-<p>Use standard Windows networking paths to view your Linux folders using Windows Explorer.  In the search box, enter:</p>
+<p>String interpolation in Ruby also calls <code class="highlighter-rouge">.to_s</code> – automatically.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  \\wsl$
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">person</span> <span class="o">=</span> <span class="p">{</span><span class="ss">:name</span> <span class="o">=&gt;</span> <span class="s1">'Juanita'</span><span class="p">,</span> 
+          <span class="ss">:salary</span> <span class="o">=&gt;</span> <span class="mi">200000</span><span class="p">,</span> 
+          <span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s1">'Senior Software Engineer'</span><span class="p">}</span>
+<span class="n">person</span><span class="p">.</span><span class="nf">to_s</span>
+<span class="c1"># "{:name=&gt;\"Juanita\", :salary=&gt;200000, :title=&gt;\"Senior Software Engineer\"}"</span>
+<span class="s2">"</span><span class="si">#{</span><span class="n">person</span><span class="si">}</span><span class="s2">"</span>
+<span class="c1"># "{:name=&gt;\"Juanita\", :salary=&gt;200000, :title=&gt;\"Senior Software Engineer\"}"</span>
 </code></pre></div></div>
-
-<p>That will bring you to the root directory of your Linux install.  To get to your home directory, try something like this, with your version of Linux.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  \\wsl$\Ubuntu-18.04\home\
-</code></pre></div></div>
-
-<h3 id="from-the-linux-side">From the Linux side</h3>
-
-<p>From Windows terminal or your Linux distribution such as Ubuntu, enter:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  explorer.exe .
-</code></pre></div></div>
-
-<p>This will open up Windows Explorer in the folder where you were in Linux.</p>
-
-<p>Use Visual Studio Code if you want an editor that works wonderfully with WSL.  Within VSCode, click on the icon on the bottom left corner to connect to your Linux install.</p>
-
-<h3 id="references">references</h3>
-
-<p><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">https://docs.microsoft.com/en-us/windows/wsl/install-win10</a></p>
-
-<h4 id="windows-subsystem-linux-runs-under-insider-build-for-windows-10">Windows Subsystem Linux runs under Insider Build for Windows 10.</h4>
 
 		
 	</div>
